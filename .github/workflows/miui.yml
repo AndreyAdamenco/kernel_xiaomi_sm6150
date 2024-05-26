@@ -19,14 +19,23 @@ jobs:
           ca-certificates python3 python2 binutils \
           binutils-aarch64-linux-gnu binutils-arm-linux-gnueabi \
           libghc-libyaml-dev libyaml-dev glibc-source \
+          
+ shell: bash
     - name: ready compile...
       run: |
           curl https://raw.githubusercontent.com/RooGhz720/RooGhz720/main/nonrx/miui.sh > miui.sh
           chmod +x miui.sh
           bash miui.sh
-      shell: bash
+           
       env:
          CHATID: ${{ secrets.CHAT_ID }}
          API_BOT: ${{ secrets.BOT_API }}
          TYPE_KERNEL: ${{ secrets.EZA }}
-
+         name: Upload a Build Artifact          
+     uses: actions/upload-artifact@v4.3.3
+  with: 
+  name: Artifactofmykernel
+  path: /home/runner/work/kernel_xiaomi_sm6150/kernel_xiaomi_sm6150
+  
+        
+  
