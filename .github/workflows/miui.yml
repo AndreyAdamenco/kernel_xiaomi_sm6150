@@ -27,10 +27,6 @@ jobs:
           chmod +x miui.sh
           bash miui.sh
            
-      env:
-         CHATID: ${{ secrets.CHAT_ID }}
-         API_BOT: ${{ secrets.BOT_API }}
-         TYPE_KERNEL: ${{ secrets.EZA }}
          name: Upload a Build Artifact          
      uses: actions/upload-artifact@v4.3.3
   with: 
